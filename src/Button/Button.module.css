@@ -1,0 +1,8 @@
+.button {
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-weight: bold;
+    background-color: cornflowerblue;
+    color: #FFFFFF;
+    display: block;
+}

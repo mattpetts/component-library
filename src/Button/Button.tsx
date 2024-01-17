@@ -1,13 +1,11 @@
 import React from "react";
+import style from './Button.module.css'
 
-import "./Button.css";
-
-export interface ButtonProps extends React.ComponentProps<"button"> {
- kind?: "primary" | "secondary";
+export interface ButtonProps {
+    label: string;
+    handleClick: () => void;
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
- ({ kind = "primary", ...props }, ref) => {
-   return <button data-button={`kind:${kind}`} ref={ref} {...props} />;
- },
-);
+export const Button = (props: ButtonProps) => {
+    return <button className={style.button} onClick={() => props.handleClick()}>{props.label}</button>;
+};

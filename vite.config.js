@@ -1,16 +1,19 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 export default defineConfig ({
-  build: {
-    lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "my-library",
-   		 
-      fileName: "index",
+    plugins: [
+        cssInjectedByJsPlugin(),
+    ],
+    build: {
+        lib: {
+            entry: resolve(__dirname, "src/index.ts"),
+            name: "my-library",   
+            fileName: "index",
+        },
+        rollupOptions: {
+            external: ["react"],
+        },
     },
-    rollupOptions: {
-      external: ["react"],
-    },
-  },
 });
